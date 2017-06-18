@@ -1,0 +1,41 @@
+﻿<main class="login">
+    <h2>Iniciar sesión</h2>
+    <h3>Te recomendamos ingresar tus datos de acceso de Club Cinépolis®, esto agilizará tu proceso de compra. Si no cuentas con una cuenta, créala <a href="http://cinepolis.com/id/registro" target="_blank">aquí</a>.</h3>
+    <article class="login-formulario">
+        <ng-form name="loginForm">
+            <fieldset>
+                <div class="input">
+                    <label for="email">Correo electrónico</label>
+                    <input name="email" type="text" placeholder="ejemplo@tucuenta.com" id="email" maxlength="100" ng-keyup="vm.formValid(loginForm)" ng-model="vm.usr.email" required ng-blur="vm.focusUsr(loginForm)" ng-pattern="regexEmail" ng-enter="vm.login(loginForm)" autocomplete="off">
+                    <p ng-show="requiredMail" class="input-error">{{message.emailRequired}}</p>
+                    <p ng-show="emailValid" class="input-error">{{message.emailValid}}</p>
+                </div>
+                <div class="input">
+                    <label for="password">Contraseña</label>
+                    <input type="password" placeholder="Ingresa tu contraseña" name="password" id="password" required ng-keyup="vm.formValid(loginForm)" ng-model="vm.usr.password" ng-enter="vm.login(loginForm)" ng-blur="vm.focusUsr(loginForm)">
+                    <p class="input-error" ng-show="pwdRequired">{{message.pwdRequiered}}</p>
+                </div>
+                <a href="http://cinepolis.com/id/inicio-recuperar-contrasena" target="_blank" class="enlace">¿Olvidaste tu contraseña?</a>
+            </fieldset>
+        </ng-form>
+        <div class="boton--accion">
+            <button ng-disabled="loginDisabled" type="button" ng-click="vm.login(loginForm)">Ingresar</button>
+        </div>
+        <div class="login-social" style="display:none;">
+            <p>Conectar con:</p>
+            <div class="boton--accion boton--social conectar-facebook" ng-class="{'disabled' : twitterDisabled}">
+                <button ng-click="vm.loginFacebook()" ng-disabled="faceBookDisabled"><span>Conectar con facebook</span></button>
+            </div>
+            <div class="boton--accion boton--social conectar-twitter">
+                <button ng-click="vm.loginTwitter()" ng-disabled="twitterDisabled"><span>Conectar con twitter</span></button>
+            </div>
+        </div>
+    </article>
+    <article class="login-invitado">
+        <h2>Continuar como invitado</h2>
+        <h3>Se solicitarán todos los datos necesarios para adquirir tus boletos.</h3>
+        <div class="boton--accion">
+            <button type="button" ng-click="vm.navigateTo()">Continuar</button>
+        </div>
+    </article>
+</main>

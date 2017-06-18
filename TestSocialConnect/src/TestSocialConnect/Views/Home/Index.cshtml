@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<link href="~/css/main.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+<script src="~/app/app.js"></script>
+<script src="~/app/controllers/AccountController.js"></script>
+<script src="~/app/services/accountService.js"></script>
+<script src="~/js/facebook.connect.pkg.js"></script>
+<link href="~/css/sweetalert2.css" rel="stylesheet" />
+<script src="~/js/sweetalert2.min.js"></script>
+<body ng-app="CinepolisApp">
+<div class="wrapper" id="wrapper" ng-controller="accountController as vm" ng-cloak>
+
+    <div class="contenido" style="width: 250px; height: 33px; margin: 0 auto;">
+        <div class="login-social">
+            <p>Conectar con:</p>
+            <div class="boton--accion boton--social conectar-facebook">
+                <button ng-click="vm.loginFacebook()" ><span tyle="font-size: 20px;">facebook</span></button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+</body>
